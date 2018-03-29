@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="szq.butler.dao.UserDAO">
+	<resultMap id="BaseResultMap" type="szq.butler.common.UserInfoDTO">
+		<result column="id" property="id" jdbcType="VARCHAR"/>
+		<result column="user_name" property="userName" jdbcType="VARCHAR"/>
+		<result column="user_pwd" property="userPwd" jdbcType="VARCHAR"/>
+	</resultMap>
+	<sql id="Base_Column_List">
+		id,user_name,user_pwd
+	</sql>
+	<select id="getAllUserInfo" resultMap="BaseResultMap">
+		select <include refid="Base_Column_List"/>
+		from szq_butler_user
+	</select>
+</mapper>
